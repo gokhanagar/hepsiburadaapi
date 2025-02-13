@@ -6,9 +6,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.User;
 import utilities.UserDataGenerator;
@@ -32,30 +34,30 @@ public class UserAPISteps {
         createdUser = UserDataGenerator.generateUser();
         
         response = given()
+            .filter(new AllureRestAssured())
             .contentType(ContentType.JSON)
-            .body(createdUser)  // RestAssured otomatik olarak JSON'a çevirecek
-        .when()
+            .body(createdUser)
+            .when()
             .post();
     }
 
     @And("store created user information")
     public void storeCreatedUserInformation() {
         Assert.assertEquals(200, response.getStatusCode());
-        System.out.println("Created user with username: " + createdUser.getUsername());
     }
 
     @And("user sets API endpoint for last created user")
     public void setEndpointForLastCreatedUser() {
         String username = UserDataGenerator.getLastGeneratedUsername();
         RestAssured.basePath = "/user/" + username;
-        System.out.println("Getting user details for: " + username);
     }
 
     @When("user sends GET request")
     public void sendGetRequest() {
         response = given()
+            .filter(new AllureRestAssured())
             .contentType(ContentType.JSON)
-        .when()
+            .when()
             .get();
     }
 
@@ -68,14 +70,18 @@ public class UserAPISteps {
     @And("validate user information matches with created user")
     public void validateUserInformationMatches() {
         Assert.assertNotNull("Response body is null!", response.getBody());
+
+        JsonPath jsonPath = response.jsonPath();
+        String actualUsername = jsonPath.getString("username");
+        String actualFirstName = jsonPath.getString("firstName");
+        String actualEmail = jsonPath.getString("email");
         
         User expectedUser = UserDataGenerator.getLastGeneratedUser();
         Assert.assertNotNull("No user data found from previous scenario", expectedUser);
         
-        User actualUser = response.as(User.class);  // JSON response'u User objesine çevir
-        
-        Assert.assertEquals("Username doesn't match!", expectedUser.getUsername(), actualUser.getUsername());
-        Assert.assertEquals("FirstName doesn't match!", expectedUser.getFirstName(), actualUser.getFirstName());
-        Assert.assertEquals("Email doesn't match!", expectedUser.getEmail(), actualUser.getEmail());
+
+        Assert.assertEquals(expectedUser.getUsername(), actualUsername);
+        Assert.assertEquals(expectedUser.getFirstName(), actualFirstName);
+        Assert.assertEquals(expectedUser.getEmail(), actualEmail);
     }
 } 

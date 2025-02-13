@@ -10,7 +10,7 @@ public class User {
     private String phone;
     private int userStatus;
 
-    // Boş constructor Jackson için gerekli
+
     public User() {}
 
     public User(String username, String firstName, String lastName, 
@@ -25,7 +25,7 @@ public class User {
         this.userStatus = userStatus;
     }
 
-    // Getter ve Setterlar
+
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
     
