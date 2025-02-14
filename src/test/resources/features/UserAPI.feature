@@ -1,8 +1,8 @@
 Feature: User API Tests
 
-  Scenario: Create a new user with POST request
-    Given user sets API base URL "https://petstore.swagger.io/v2"
-    And user sets API endpoint "/user"
+  Scenario: Create and verify user
+    Given user sets API base URL "api.base.url"
+    And user sets API endpoint "api.users.endpoint"
     When user creates new user with dynamic data
     Then validate the status code 200
     And store created user information

@@ -15,6 +15,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.User;
+import utilities.ConfigurationReader;
 import utilities.UserDataGenerator;
 
 public class UserAPISteps {
@@ -23,14 +24,15 @@ public class UserAPISteps {
     private User createdUser;
 
     @Given("user sets API base URL {string}")
-    public void setBaseUrl(String url) {
-        RestAssured.baseURI = url;
+    public void setBaseUrl(String urlKey) {
+        RestAssured.baseURI = ConfigurationReader.getProperty("api.base.url");
+        logger.info("Base URL set to: " + RestAssured.baseURI);
     }
 
     @And("user sets API endpoint {string}")
-    public void setEndpoint(String path) {
-        RestAssured.basePath = path;
-        logger.info("API endpoint set to: " + path);
+    public void setEndpoint(String endpointKey) {
+        RestAssured.basePath = ConfigurationReader.getProperty("api.users.endpoint");
+        logger.info("API endpoint set to: " + RestAssured.basePath);
     }
 
     @When("user creates new user with dynamic data")
@@ -62,7 +64,10 @@ public class UserAPISteps {
     @And("user sets API endpoint for last created user")
     public void setEndpointForLastCreatedUser() {
         String username = UserDataGenerator.getLastGeneratedUsername();
-        RestAssured.basePath = "/user/" + username;
+        String userEndpoint = ConfigurationReader.getProperty("api.user.endpoint")
+            .replace("{username}", username);
+        RestAssured.basePath = userEndpoint;
+        logger.info("User endpoint set to: " + RestAssured.basePath);
     }
 
     @When("user sends GET request")
