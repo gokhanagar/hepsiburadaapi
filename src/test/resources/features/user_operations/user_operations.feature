@@ -8,7 +8,7 @@ Feature: User API Tests
     And store created user information
 
   Scenario: Get user information with GET request
-    Given user sets API base URL "https://petstore.swagger.io/v2"
+    Given user sets API base URL "api.base.url"
     And user sets API endpoint for last created user
     When user sends GET request
     Then validate the status code 200

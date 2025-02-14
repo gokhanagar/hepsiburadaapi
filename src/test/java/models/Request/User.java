@@ -1,4 +1,4 @@
-package models;
+package models.Request;
 
 public class User {
     private long id;

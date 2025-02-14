@@ -1,4 +1,4 @@
-package utilities;
+package utilities.Config;
 
 import java.io.FileInputStream;
 import java.io.IOException;

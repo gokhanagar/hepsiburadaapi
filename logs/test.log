@@ -1,28 +1,49 @@
-10:05:31.602 [main] INFO  stepdefinitions.UserAPISteps - API endpoint set to: /user
-10:05:34.362 [main] INFO  stepdefinitions.UserAPISteps - POST request sent to create new user
-10:05:34.362 [main] INFO  stepdefinitions.UserAPISteps - Response: {"code":200,"type":"unknown","message":"9223372036854767291"}
-10:05:34.365 [main] INFO  stepdefinitions.UserAPISteps - User created successfully with status code: 200
-10:05:35.113 [main] INFO  stepdefinitions.UserAPISteps - GET request sent to fetch user details
-10:05:35.113 [main] INFO  stepdefinitions.UserAPISteps - Response: {"id":9223372036854767291,"username":"user_f35990c2","firstName":"FirstName_f35990c2","lastName":"LastName_f35990c2","email":"email_f35990c2@test.com","password":"Test123","phone":"555f35990c","userStatus":1}
-10:05:35.680 [main] INFO  stepdefinitions.UserAPISteps - User details verified successfully
-10:17:33.981 [main] INFO  stepdefinitions.UserAPISteps - API endpoint set to: /user
-10:17:33.986 [main] INFO  stepdefinitions.UserAPISteps - Creating new user with username: user_b277af72, firstName: FirstName_b277af72, email: email_b277af72@test.com
-10:17:36.746 [main] INFO  stepdefinitions.UserAPISteps - POST request sent to create new user
-10:17:36.747 [main] INFO  stepdefinitions.UserAPISteps - Response status code: 200
-10:17:36.747 [main] INFO  stepdefinitions.UserAPISteps - Response body: {"code":200,"type":"unknown","message":"9223372036854767428"}
-10:17:36.750 [main] INFO  stepdefinitions.UserAPISteps - User created successfully with status code: 200
-10:17:37.479 [main] INFO  stepdefinitions.UserAPISteps - GET request sent to fetch user details
-10:17:37.479 [main] INFO  stepdefinitions.UserAPISteps - Response: {"id":9223372036854767428,"username":"user_b277af72","firstName":"FirstName_b277af72","lastName":"LastName_b277af72","email":"email_b277af72@test.com","password":"Test123","phone":"555b277af7","userStatus":1}
-10:17:38.103 [main] INFO  stepdefinitions.UserAPISteps - User details verified successfully
-10:26:09.865 [main] INFO  stepdefinitions.UserAPISteps - Base URL set to: https://petstore.swagger.io/v2
-10:26:09.873 [main] INFO  stepdefinitions.UserAPISteps - API endpoint set to: /user
-10:26:09.878 [main] INFO  stepdefinitions.UserAPISteps - Creating new user with username: user_20b4f80f, firstName: FirstName_20b4f80f, email: email_20b4f80f@test.com
-10:26:12.508 [main] INFO  stepdefinitions.UserAPISteps - POST request sent to create new user
-10:26:12.509 [main] INFO  stepdefinitions.UserAPISteps - Response status code: 200
-10:26:12.509 [main] INFO  stepdefinitions.UserAPISteps - Response body: {"code":200,"type":"unknown","message":"9223372036854767516"}
-10:26:12.512 [main] INFO  stepdefinitions.UserAPISteps - User created successfully with status code: 200
-10:26:12.520 [main] INFO  stepdefinitions.UserAPISteps - Base URL set to: https://petstore.swagger.io/v2
-10:26:12.521 [main] INFO  stepdefinitions.UserAPISteps - User endpoint set to: /user/user_20b4f80f
-10:26:13.237 [main] INFO  stepdefinitions.UserAPISteps - GET request sent to fetch user details
-10:26:13.238 [main] INFO  stepdefinitions.UserAPISteps - Response: {"id":9223372036854767516,"username":"user_20b4f80f","firstName":"FirstName_20b4f80f","lastName":"LastName_20b4f80f","email":"email_20b4f80f@test.com","password":"Test123","phone":"55520b4f80","userStatus":1}
-10:26:13.812 [main] INFO  stepdefinitions.UserAPISteps - User details verified successfully
+10:05:31.602 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - API endpoint set to: /user
+10:05:34.362 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - POST request sent to create new user
+10:05:34.362 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"code":200,"type":"unknown","message":"9223372036854767291"}
+10:05:34.365 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User created successfully with status code: 200
+10:05:35.113 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - GET request sent to fetch user details
+10:05:35.113 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"id":9223372036854767291,"username":"user_f35990c2","firstName":"FirstName_f35990c2","lastName":"LastName_f35990c2","email":"email_f35990c2@test.com","password":"Test123","phone":"555f35990c","userStatus":1}
+10:05:35.680 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User details verified successfully
+10:17:33.981 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - API endpoint set to: /user
+10:17:33.986 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Creating new user with username: user_b277af72, firstName: FirstName_b277af72, email: email_b277af72@test.com
+10:17:36.746 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - POST request sent to create new user
+10:17:36.747 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response status code: 200
+10:17:36.747 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response body: {"code":200,"type":"unknown","message":"9223372036854767428"}
+10:17:36.750 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User created successfully with status code: 200
+10:17:37.479 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - GET request sent to fetch user details
+10:17:37.479 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"id":9223372036854767428,"username":"user_b277af72","firstName":"FirstName_b277af72","lastName":"LastName_b277af72","email":"email_b277af72@test.com","password":"Test123","phone":"555b277af7","userStatus":1}
+10:17:38.103 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User details verified successfully
+10:26:09.865 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Base URL set to: https://petstore.swagger.io/v2
+10:26:09.873 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - API endpoint set to: /user
+10:26:09.878 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Creating new user with username: user_20b4f80f, firstName: FirstName_20b4f80f, email: email_20b4f80f@test.com
+10:26:12.508 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - POST request sent to create new user
+10:26:12.509 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response status code: 200
+10:26:12.509 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response body: {"code":200,"type":"unknown","message":"9223372036854767516"}
+10:26:12.512 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User created successfully with status code: 200
+10:26:12.520 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Base URL set to: https://petstore.swagger.io/v2
+10:26:12.521 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User endpoint set to: /user/user_20b4f80f
+10:26:13.237 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - GET request sent to fetch user details
+10:26:13.238 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"id":9223372036854767516,"username":"user_20b4f80f","firstName":"FirstName_20b4f80f","lastName":"LastName_20b4f80f","email":"email_20b4f80f@test.com","password":"Test123","phone":"55520b4f80","userStatus":1}
+10:26:13.812 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User details verified successfully
+10:46:52.261 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Base URL set to: https://petstore.swagger.io/v2
+10:46:52.267 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - API endpoint set to: /user
+10:46:52.269 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Creating new user with username: user_a6b9daae, firstName: FirstName_a6b9daae, email: email_a6b9daae@test.com
+10:46:55.001 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - POST request sent to create new user
+10:46:55.001 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response status code: 200
+10:46:55.002 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response body: {"code":200,"type":"unknown","message":"9223372036854767715"}
+10:46:55.005 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User created successfully with status code: 200
+10:46:55.014 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Base URL set to: https://petstore.swagger.io/v2
+10:46:55.014 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User endpoint set to: /user/user_a6b9daae
+10:46:55.736 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - GET request sent to fetch user details
+10:46:55.736 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"id":9223372036854767715,"username":"user_a6b9daae","firstName":"FirstName_a6b9daae","lastName":"LastName_a6b9daae","email":"email_a6b9daae@test.com","password":"Test123","phone":"555a6b9daa","userStatus":1}
+10:46:56.368 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - User details verified successfully
+10:55:55.128 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Creating new user with username: user_3ffecf01, firstName: FirstName_3ffecf01, email: email_3ffecf01@test.com
+10:55:58.675 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - GET request sent to fetch user details
+10:55:58.676 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"id":9223372036854767789,"username":"user_3ffecf01","firstName":"FirstName_3ffecf01","lastName":"LastName_3ffecf01","email":"email_3ffecf01@test.com","password":"Test123","phone":"5553ffecf0","userStatus":1}
+11:03:46.842 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Creating new user with username: user_eb987d52, firstName: FirstName_eb987d52, email: email_eb987d52@test.com
+11:03:51.195 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - GET request sent to fetch user details
+11:03:51.195 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"id":9223372036854767848,"username":"user_eb987d52","firstName":"FirstName_eb987d52","lastName":"LastName_eb987d52","email":"email_eb987d52@test.com","password":"Test123","phone":"555eb987d5","userStatus":1}
+11:12:46.351 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Creating new user with username: user_4fe74e20, firstName: FirstName_4fe74e20, email: email_4fe74e20@test.com
+11:12:50.202 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - GET request sent to fetch user details
+11:12:50.202 [main] INFO  stepdefinitions.UserOperationsSteps.UserAPISteps - Response: {"id":9223372036854767941,"username":"user_4fe74e20","firstName":"FirstName_4fe74e20","lastName":"LastName_4fe74e20","email":"email_4fe74e20@test.com","password":"Test123","phone":"5554fe74e2","userStatus":1}

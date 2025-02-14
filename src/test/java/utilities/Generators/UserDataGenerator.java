@@ -1,8 +1,8 @@
-package utilities;
+package utilities.Generators;
 
 import java.util.UUID;
 
-import models.User;
+import models.Request.User;
 
 public class UserDataGenerator {
     private static User lastGeneratedUser;

@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.UserOperationsSteps;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,15 +8,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
-import static io.restassured.RestAssured.given;
-import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import models.User;
-import utilities.ConfigurationReader;
-import utilities.UserDataGenerator;
+import models.Request.User;
+import utilities.Config.ConfigurationReader;
+import utilities.Api.RequestSpecificationManager;
+import utilities.Generators.UserDataGenerator;
 
 public class UserAPISteps {
     private static final Logger logger = LogManager.getLogger(UserAPISteps.class);
@@ -26,13 +24,13 @@ public class UserAPISteps {
     @Given("user sets API base URL {string}")
     public void setBaseUrl(String urlKey) {
         RestAssured.baseURI = ConfigurationReader.getProperty("api.base.url");
-        logger.info("Base URL set to: " + RestAssured.baseURI);
+
     }
 
     @And("user sets API endpoint {string}")
     public void setEndpoint(String endpointKey) {
         RestAssured.basePath = ConfigurationReader.getProperty("api.users.endpoint");
-        logger.info("API endpoint set to: " + RestAssured.basePath);
+
     }
 
     @When("user creates new user with dynamic data")
@@ -43,22 +41,16 @@ public class UserAPISteps {
                     ", firstName: " + createdUser.getFirstName() + 
                     ", email: " + createdUser.getEmail());
         
-        response = given()
-            .filter(new AllureRestAssured())
-            .contentType(ContentType.JSON)
-            .body(createdUser)
-            .when()
-            .post();
-        
-        logger.info("POST request sent to create new user");
-        logger.info("Response status code: " + response.getStatusCode());
-        logger.info("Response body: " + response.asString());
+        response = RequestSpecificationManager
+                    .getUserCreationSpec(createdUser)
+                    .when()
+                    .post();
     }
 
     @And("store created user information")
     public void storeCreatedUserInformation() {
         Assert.assertEquals(200, response.getStatusCode());
-        logger.info("User created successfully with status code: " + response.getStatusCode());
+
     }
 
     @And("user sets API endpoint for last created user")
@@ -67,16 +59,16 @@ public class UserAPISteps {
         String userEndpoint = ConfigurationReader.getProperty("api.user.endpoint")
             .replace("{username}", username);
         RestAssured.basePath = userEndpoint;
-        logger.info("User endpoint set to: " + RestAssured.basePath);
+
     }
 
     @When("user sends GET request")
     public void sendGetRequest() {
-        response = given()
-            .filter(new AllureRestAssured())
-            .contentType(ContentType.JSON)
-            .when()
-            .get();
+        response = RequestSpecificationManager
+                    .getUserDetailsSpec()
+                    .when()
+                    .get();
+                    
         logger.info("GET request sent to fetch user details");
         logger.info("Response: " + response.asString());
     }
@@ -103,6 +95,6 @@ public class UserAPISteps {
         Assert.assertEquals(expectedUser.getUsername(), actualUsername);
         Assert.assertEquals(expectedUser.getFirstName(), actualFirstName);
         Assert.assertEquals(expectedUser.getEmail(), actualEmail);
-        logger.info("User details verified successfully");
+
     }
 } 
