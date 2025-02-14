@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 
 import io.cucumber.java.en.And;
@@ -16,6 +18,7 @@ import models.User;
 import utilities.UserDataGenerator;
 
 public class UserAPISteps {
+    private static final Logger logger = LogManager.getLogger(UserAPISteps.class);
     private Response response;
     private User createdUser;
 
@@ -27,11 +30,16 @@ public class UserAPISteps {
     @And("user sets API endpoint {string}")
     public void setEndpoint(String path) {
         RestAssured.basePath = path;
+        logger.info("API endpoint set to: " + path);
     }
 
     @When("user creates new user with dynamic data")
     public void createNewUserWithDynamicData() {
         createdUser = UserDataGenerator.generateUser();
+        
+        logger.info("Creating new user with username: " + createdUser.getUsername() + 
+                    ", firstName: " + createdUser.getFirstName() + 
+                    ", email: " + createdUser.getEmail());
         
         response = given()
             .filter(new AllureRestAssured())
@@ -39,11 +47,16 @@ public class UserAPISteps {
             .body(createdUser)
             .when()
             .post();
+        
+        logger.info("POST request sent to create new user");
+        logger.info("Response status code: " + response.getStatusCode());
+        logger.info("Response body: " + response.asString());
     }
 
     @And("store created user information")
     public void storeCreatedUserInformation() {
         Assert.assertEquals(200, response.getStatusCode());
+        logger.info("User created successfully with status code: " + response.getStatusCode());
     }
 
     @And("user sets API endpoint for last created user")
@@ -59,6 +72,8 @@ public class UserAPISteps {
             .contentType(ContentType.JSON)
             .when()
             .get();
+        logger.info("GET request sent to fetch user details");
+        logger.info("Response: " + response.asString());
     }
 
     @Then("validate the status code {int}")
@@ -83,5 +98,6 @@ public class UserAPISteps {
         Assert.assertEquals(expectedUser.getUsername(), actualUsername);
         Assert.assertEquals(expectedUser.getFirstName(), actualFirstName);
         Assert.assertEquals(expectedUser.getEmail(), actualEmail);
+        logger.info("User details verified successfully");
     }
 } 

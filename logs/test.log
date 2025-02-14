@@ -1,0 +1,16 @@
+10:05:31.602 [main] INFO  stepdefinitions.UserAPISteps - API endpoint set to: /user
+10:05:34.362 [main] INFO  stepdefinitions.UserAPISteps - POST request sent to create new user
+10:05:34.362 [main] INFO  stepdefinitions.UserAPISteps - Response: {"code":200,"type":"unknown","message":"9223372036854767291"}
+10:05:34.365 [main] INFO  stepdefinitions.UserAPISteps - User created successfully with status code: 200
+10:05:35.113 [main] INFO  stepdefinitions.UserAPISteps - GET request sent to fetch user details
+10:05:35.113 [main] INFO  stepdefinitions.UserAPISteps - Response: {"id":9223372036854767291,"username":"user_f35990c2","firstName":"FirstName_f35990c2","lastName":"LastName_f35990c2","email":"email_f35990c2@test.com","password":"Test123","phone":"555f35990c","userStatus":1}
+10:05:35.680 [main] INFO  stepdefinitions.UserAPISteps - User details verified successfully
+10:17:33.981 [main] INFO  stepdefinitions.UserAPISteps - API endpoint set to: /user
+10:17:33.986 [main] INFO  stepdefinitions.UserAPISteps - Creating new user with username: user_b277af72, firstName: FirstName_b277af72, email: email_b277af72@test.com
+10:17:36.746 [main] INFO  stepdefinitions.UserAPISteps - POST request sent to create new user
+10:17:36.747 [main] INFO  stepdefinitions.UserAPISteps - Response status code: 200
+10:17:36.747 [main] INFO  stepdefinitions.UserAPISteps - Response body: {"code":200,"type":"unknown","message":"9223372036854767428"}
+10:17:36.750 [main] INFO  stepdefinitions.UserAPISteps - User created successfully with status code: 200
+10:17:37.479 [main] INFO  stepdefinitions.UserAPISteps - GET request sent to fetch user details
+10:17:37.479 [main] INFO  stepdefinitions.UserAPISteps - Response: {"id":9223372036854767428,"username":"user_b277af72","firstName":"FirstName_b277af72","lastName":"LastName_b277af72","email":"email_b277af72@test.com","password":"Test123","phone":"555b277af7","userStatus":1}
+10:17:38.103 [main] INFO  stepdefinitions.UserAPISteps - User details verified successfully
